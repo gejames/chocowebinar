@@ -12,15 +12,15 @@
       chocolatey.chocolatey.win_chocolatey:
         name: “{{ item }}”
         state: present
-        loop:
-          - chocolatey-agent
-          - chocolateygui
+      loop:
+        - chocolatey-agent
+        - chocolateygui
 
     - name: Configure features for self-service
       chocolatey.chocolatey.win_chocolatey_feature:
         name: “{{ item }}”
         state: enabled
-        loop:
-          - useBackgroundService
-          - useBackgroundServiceWithNonAdministratorsOnly
-          - allowBackgroundServiceUninstallsFromUserInstallsOnly
+      loop:
+        - useBackgroundService
+        - useBackgroundServiceWithNonAdministratorsOnly
+        - allowBackgroundServiceUninstallsFromUserInstallsOnly
