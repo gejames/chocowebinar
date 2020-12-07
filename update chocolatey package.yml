@@ -11,7 +11,7 @@
   
   tasks:
 
-    - name: Install specific versions of packages sequentially
+    - name: Install latest version of packages.
       win_chocolatey:
         name: "{{ item.name }}"
         version: "{{ item.version }}"
