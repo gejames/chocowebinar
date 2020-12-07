@@ -10,6 +10,10 @@
         version: 3.6.0
       - name: 7zip
         version: 19.0
+
+  collections:
+    - chocolatey.chocolatey 
+ 
   
   tasks:
 
