@@ -1,6 +1,6 @@
 ---
 - name: Install Specific versions of packages using Chocolatey
-  hosts: all
+  hosts: windows
   gather_facts: false
   vars:
     choco_packages:
@@ -11,21 +11,21 @@
       - name: 7zip
         version: 19.0
   
-   tasks:
+  tasks:
 
-      - name: Install specific versions of packages sequentially
-        win_chocolatey:
-          name: "{{ item.name }}"
-          version: "{{ item.version }}"
-        loop: "{{ choco_packages }}"
+    - name: Install specific versions of packages sequentially
+      win_chocolatey:
+        name: "{{ item.name }}"
+        version: "{{ item.version }}"
+      loop: "{{ choco_packages }}"
 
-      - name: Check python version
-        win_command: python --version
-        register: check_python_version
+    - name: Check python version
+      win_command: python --version
+      register: check_python_version
 
-      - name: Check nodejs version
-        win_command: node --version
-        register: check_node_version
+    - name: Check nodejs version
+      win_command: node --version
+      register: check_node_version
 
-      - debug:
-          msg: Python Version is {{ check_python_version.stdout_lines[0] }} and NodeJS version is {{ check_nod
+    - debug:
+        msg: Python Version is {{ check_python_version.stdout_lines[0] }} and NodeJS version is {{ check_nod
