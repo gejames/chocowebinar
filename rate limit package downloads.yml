@@ -9,7 +9,7 @@
   tasks:
 
    - name: Rate limit downloads
-    chocolatey.chocolatey.win_chocolatey_config:
-      name: maximumDownloadRateBitsPerSecond
-      state: present
-      value: 25000000
+     chocolatey.chocolatey.win_chocolatey_config:
+       name: maximumDownloadRateBitsPerSecond
+       state: present
+       value: 25000000
