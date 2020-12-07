@@ -2,6 +2,9 @@
 - name: Install Specific versions of packages using Chocolatey
   hosts: windows
   gather_facts: false
+
+  collections:
+    - chocolatey.chocolatey 
   
   tasks: 
 
