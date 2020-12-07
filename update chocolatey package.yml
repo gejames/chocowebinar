@@ -14,7 +14,7 @@
   tasks:
 
     - name: Install latest version of packages.
-      win_chocolatey:
+      chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
         version: "{{ item.version }}"
       loop: "{{ choco_packages }}"

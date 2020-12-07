@@ -18,7 +18,7 @@
   tasks:
 
     - name: Install specific versions of packages sequentially
-      win_chocolatey:
+      chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
         version: "{{ item.version }}"
       loop: "{{ choco_packages }}"

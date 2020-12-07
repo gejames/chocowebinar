@@ -9,12 +9,12 @@
   tasks: 
 
    - name: Remove the default public source
-     win_chocolatey_source:
+     chocolatey.chocolatey.win_chocolatey_source:
        name: chocolatey
        state: present
 
    - name: Gather facts from chocolatey
-     win_chocolatey_facts:
+     chocolatey.chocolatey.win_chocolatey_facts:
 
    - name: Displays the configured chocolatey sources
      debug:
