@@ -28,4 +28,4 @@
       register: check_node_version
 
     - debug:
-        msg: Python Version is {{ check_python_version.stdout_lines[0] }} and NodeJS version is {{ check_nod
+        msg: Python Version is {{ check_python_version.stdout_lines[0] }} and NodeJS version is {{ check_node_version.stdout_lines[0] }}
