@@ -21,6 +21,6 @@
         name: “{{ item }}”
         state: enabled
         loop:
-        - useBackgroundService
-        - useBackgroundServiceWithNonAdministratorsOnly
-        - allowBackgroundServiceUninstallsFromUserInstallsOnly
+          - useBackgroundService
+          - useBackgroundServiceWithNonAdministratorsOnly
+          - allowBackgroundServiceUninstallsFromUserInstallsOnly
