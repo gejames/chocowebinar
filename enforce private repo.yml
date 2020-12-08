@@ -17,9 +17,9 @@
 
    - name: Add new internal source
      chocolatey.chocolatey.win_chocolatey_source:
-        name: internal repo
+        name: ChocolateyInternal
         state: present
-        source: http://chocolatey-server/chocolatey
+        source: https://chocoserver.geojams.me:8443/repository/ChocolateyInternal/
 
    - name: Gather facts from chocolatey
      chocolatey.chocolatey.win_chocolatey_facts:
