@@ -12,6 +12,7 @@
       chocolatey.chocolatey.win_chocolatey:
         name: “{{ item }}”
         state: latest
+        source: https://licensedpackages.chocolatey.org/api/v2/
       loop:
         - chocolatey-agent
         - chocolateygui
