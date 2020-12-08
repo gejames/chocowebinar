@@ -28,6 +28,6 @@
 
     - name: Configure features for self-service
       chocolatey.chocolatey.win_chocolatey_feature:
-        name: “{{ item.name }}”
+        name: "{{ item.name }}"
         state: enabled
       loop: "{{ choco_features }}"
