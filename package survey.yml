@@ -12,8 +12,7 @@
     - name: Install specific versions of packages sequentially
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ name }}"
-        state: present
-        version: "{{ version }}"
+        state: latest
  
 
     
