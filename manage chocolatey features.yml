@@ -15,9 +15,9 @@
 
   tasks:
 
-    - name: Install chocolatey agent and gui
+    - name: Install specific versions of packages sequentially
       chocolatey.chocolatey.win_chocolatey:
-        name: “{{ item.name }}”
+        name: "{{ item.name }}"
         state: present
       loop: "{{ choco_packages }}"
 
