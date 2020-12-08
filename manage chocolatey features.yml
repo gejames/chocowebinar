@@ -5,17 +5,21 @@
 
   collections:
     - chocolatey.chocolatey 
+  
+  vars: 
+    choco_packages:
+      - name: chocolatey-agent
+      - name: chocolateygui
+
+    
 
   tasks:
 
     - name: Install chocolatey agent and gui
       chocolatey.chocolatey.win_chocolatey:
-        name: “{{ item }}”
-        state: latest
-        source: https://chocolatey.org/api/v2/
-      loop:
-        - chocolatey-agent
-        - chocolateygui
+        name: “{{ item.name }}”
+        state: present
+      loop: {{ choco_packages }}
 
     - name: Configure features for self-service
       chocolatey.chocolatey.win_chocolatey_feature:
