@@ -10,6 +10,11 @@
     choco_packages:
       - name: chocolatey-agent
       - name: chocolateygui
+    
+    choco_features:
+       - name: useBackgroundService
+       - name: useBackgroundServiceWithNonAdministratorsOnly
+       - name: allowBackgroundServiceUninstallsFromUserInstallsOnly
 
     
 
@@ -23,9 +28,6 @@
 
     - name: Configure features for self-service
       chocolatey.chocolatey.win_chocolatey_feature:
-        name: “{{ item }}”
+        name: “{{ item.name }}”
         state: enabled
-      loop:
-        - useBackgroundService
-        - useBackgroundServiceWithNonAdministratorsOnly
-        - allowBackgroundServiceUninstallsFromUserInstallsOnly
+      loop: "{{ choco_features }}"
