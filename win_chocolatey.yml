@@ -4,10 +4,6 @@
   gather_facts: false
   vars:
     choco_packages:
-      - name: nodejs
-        version: 13.0.0
-      - name: python
-        version: 3.6.0
       - name: 7zip
         version: 19.0
 
