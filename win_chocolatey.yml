@@ -1,16 +1,9 @@
 ---
-- name: Install Specific versions of packages using Chocolatey
+- name: Install packages using Chocolatey and Ansible Tower
   hosts: windows
   gather_facts: false
-  vars:
-    choco_packages:
-      - name: 7zip
-        version: 19.0
 
-  collections:
-    - chocolatey.chocolatey 
- 
-  
+
   tasks:
 
     - name: Install specific versions of packages sequentially
