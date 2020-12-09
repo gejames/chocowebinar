@@ -9,7 +9,7 @@
   
   tasks:
 
-    - name: Install specific versions of packages sequentially
+    - name: Install chocolatey packages from Tower Survey
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ item }}"
         state: latest
