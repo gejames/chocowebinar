@@ -1,0 +1,39 @@
+---
+- name: Reset lab
+  hosts: windows
+  gather_facts: false
+
+  collections:
+    - chocolatey.chocolatey 
+
+   vars: 
+    choco_packages:
+      - name: 7zip
+      - name: python
+  
+  tasks: 
+
+   - name: Add the default public source
+     chocolatey.chocolatey.win_chocolatey_source:
+       name: chocolatey
+       state: present
+       source: https://chocolatey.org/api/v2/
+
+   - name: Remove new internal source
+     chocolatey.chocolatey.win_chocolatey_source:
+        name: ChocolateyInternal
+        state: absent
+        source: https://chocoserver.ch0.co:8443/repository/ChocolateyInternal/
+
+   - name: Remove choco packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ item.name }}"
+        state: present
+      loop: "{{ choco_packages }}"
+
+   - name: ReSet chocolatey cache location
+     chocolatey.chocolatey.win_chocolatey_config:
+       name: cacheLocation
+       state: present
+       value: c:\ProgramData\chocolatey\choco-cache
+
