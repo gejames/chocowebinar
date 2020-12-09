@@ -1,5 +1,5 @@
 ---
-- name: Update Chocolatey Config
+- name: Update Chocolatey Config to limit download bw
   hosts: windows
   gather_facts: false
 

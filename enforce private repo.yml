@@ -1,7 +1,5 @@
-
-
 ---
-- name: Install Specific versions of packages using Chocolatey
+- name: Enforce private choco repo
   hosts: windows
   gather_facts: false
 

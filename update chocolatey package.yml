@@ -1,11 +1,11 @@
 ---
-- name: Install Specific versions of packages using Chocolatey
+- name: Install specific versions of packages using Chocolatey
   hosts: windows
   gather_facts: false
   vars:
     choco_packages:
       - name: 7zip
-        version: latest
+        version: 19.0
     
   collections:
     - chocolatey.chocolatey 
