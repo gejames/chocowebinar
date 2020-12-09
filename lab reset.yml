@@ -6,10 +6,17 @@
   collections:
     - chocolatey.chocolatey 
 
-   vars: 
+  vars: 
     choco_packages:
       - name: 7zip
       - name: python
+      - name: chocolatey-agent
+      - name: chocolateygui
+
+    choco_features:
+       - name: useBackgroundService
+       - name: useBackgroundServiceWithNonAdministratorsOnly
+       - name: allowBackgroundServiceUninstallsFromUserInstallsOnly
   
   tasks: 
 
@@ -26,10 +33,16 @@
         source: https://chocoserver.ch0.co:8443/repository/ChocolateyInternal/
 
    - name: Remove choco packages
-      chocolatey.chocolatey.win_chocolatey:
+     chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
         state: present
-      loop: "{{ choco_packages }}"
+     loop: "{{ choco_packages }}"
+
+   - name: Configure features for self-service
+     chocolatey.chocolatey.win_chocolatey_feature:
+        name: "{{ item.name }}"
+        state: enabled
+     loop: "{{ choco_features }}"
 
    - name: ReSet chocolatey cache location
      chocolatey.chocolatey.win_chocolatey_config:
