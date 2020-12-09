@@ -35,7 +35,7 @@
    - name: Remove choco packages
      chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
-        state: present
+        state: absent
      loop: "{{ choco_packages }}"
 
    - name: Configure features for self-service
