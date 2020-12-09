@@ -31,3 +31,13 @@
         name: "{{ item.name }}"
         state: enabled
       loop: "{{ choco_features }}"
+
+    - name: Retrieve chocolatey facts
+      chocolatey.chocolatey.win_chocolatey_facts:
+      register: config
+    
+    - name: Displays the facts from chocolatey
+      debug:
+        msg: "{{ config }}"
+
+      
