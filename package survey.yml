@@ -1,5 +1,5 @@
 ---
-- name: Install Specific versions of packages using Chocolatey
+- name: Install chocolatey packages from Tower Survey
   hosts: windows
   gather_facts: false
 
