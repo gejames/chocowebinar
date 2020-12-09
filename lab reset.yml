@@ -41,12 +41,12 @@
    - name: Configure features for self-service
      chocolatey.chocolatey.win_chocolatey_feature:
         name: "{{ item.name }}"
-        state: enabled
+        state: absent
      loop: "{{ choco_features }}"
 
    - name: ReSet chocolatey cache location
      chocolatey.chocolatey.win_chocolatey_config:
        name: cacheLocation
-       state: present
+       state: absent
        value: c:\ProgramData\chocolatey\choco-cache
 
