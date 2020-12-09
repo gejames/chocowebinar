@@ -38,13 +38,13 @@
         state: absent
      loop: "{{ choco_packages }}"
 
-   - name: Configure features for self-service
+   - name: Remove features for self-service
      chocolatey.chocolatey.win_chocolatey_feature:
         name: "{{ item.name }}"
-        state: absent
+        state: disabled
      loop: "{{ choco_features }}"
 
-   - name: ReSet chocolatey cache location
+   - name: Reset chocolatey cache location
      chocolatey.chocolatey.win_chocolatey_config:
        name: cacheLocation
        state: absent
