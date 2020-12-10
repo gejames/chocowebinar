@@ -9,7 +9,7 @@
   vars: 
     choco_packages:
       - name: 7zip
-      - name: python
+      - name: nodejs
       - name: chocolatey-agent
       - name: chocolateygui
 
