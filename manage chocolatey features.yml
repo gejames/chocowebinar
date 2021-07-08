@@ -22,7 +22,7 @@
     - name: Install choco packages
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
-        state: present
+        state: latest
       loop: "{{ choco_packages }}"
 
     - name: Configure features for self-service
