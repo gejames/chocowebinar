@@ -3,6 +3,9 @@
   hosts: windows
   gather_facts: false
 
+  vars:
+    chocoserver: chocoserver.ch0.co
+
   collections:
     - chocolatey.chocolatey 
   
@@ -17,7 +20,7 @@
      chocolatey.chocolatey.win_chocolatey_source:
         name: ChocolateyInternal
         state: present
-        source: https://chocoserver.westus2.cloudapp.azure.com:8443/repository/ChocolateyInternal
+        source: "https://{{ chocoserver }}:8443/repository/ChocolateyInternal"
 
    - name: Gather facts from chocolatey
      chocolatey.chocolatey.win_chocolatey_facts:
