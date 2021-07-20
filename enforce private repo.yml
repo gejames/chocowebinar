@@ -4,7 +4,7 @@
   gather_facts: false
 
   vars:
-    chocoserver: chocoserver.ch0.co
+    chocoserver: "https://chocoserver.ch0.co:8443/repository/ChocolateyInternal/"
 
   collections:
     - chocolatey.chocolatey 
@@ -20,7 +20,7 @@
      chocolatey.chocolatey.win_chocolatey_source:
         name: ChocolateyInternal
         state: present
-        source: "https://{{ chocoserver }}:8443/repository/ChocolateyInternal/"
+        source: "{{ chocoserver }}"
 
    - name: Gather facts from chocolatey
      chocolatey.chocolatey.win_chocolatey_facts:
