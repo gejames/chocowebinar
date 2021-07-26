@@ -22,6 +22,7 @@
     - name: Install choco packages
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
+        source: chocolatey.licensed
         state: latest
       loop: "{{ choco_packages }}"
 
