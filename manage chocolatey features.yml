@@ -23,7 +23,6 @@
       chocolatey.chocolatey.win_chocolatey:
         name: "{{ item.name }}"
         state: latest
-        source: chocolatey.licensed
       loop: "{{ choco_packages }}"
 
     - name: Configure features for self-service
